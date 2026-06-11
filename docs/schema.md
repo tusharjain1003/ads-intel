@@ -45,8 +45,9 @@ Joins to `ad_versions` (1:N) and `detections` (1:N).
 ### Unique constraint
 
 `(source_platform, source_ad_id)` — if the source provides an ID, it is the
-primary dedup key.  A content-based fallback (`landing_domain + advertiser_name
-+ ad_text` hash) is used when `source_ad_id` is NULL.
+primary dedup key.  A content-based fallback exact match
+(`source_platform + landing_domain + advertiser_name + ad_text`) is used when
+`source_ad_id` is NULL.
 
 A composite index `ix_ads_fallback_dedup` on
 `(source_platform, landing_domain, advertiser_name)` accelerates the fallback
@@ -106,10 +107,10 @@ Each call to `run_ingestion()` creates one row.
 | `id` | UUID | PK |
 | `source_platform` | VARCHAR(20) | `meta`, `tiktok`, `microsoft`, or `all` |
 | `started_at` / `completed_at` | TIMESTAMP | Run lifecycle |
-| `status` | VARCHAR(20) | `RUNNING` → `SUCCESS` / `FAILED` |
+| `status` | VARCHAR(20) | `RUNNING` → `SUCCESS` / `PARTIAL_SUCCESS` / `FAILED` |
 | `ads_seen` / `_new` / `_updated` / `_unchanged` / `_failed` | INTEGER | Counters |
 | `detections_triggered` | INTEGER | Number of detection rows created |
-| `error_message` | TEXT | First error message if status is `FAILED` |
+| `error_message` | TEXT | Concise adapter/per-record error summary for `FAILED` or `PARTIAL_SUCCESS` runs |
 
 ---
 
@@ -129,8 +130,8 @@ Immutable history of every snapshot for an ad.
 | `seen_at` | TIMESTAMP | When this version was observed |
 | `ingestion_run_id` | UUID FK → `ingestion_runs.id` | The run that produced this version |
 
-`changed_fields` is `NULL` for the first version (`version_number = 1`).
-Subsequent versions list only the fields whose normalised values differ.
+For the first version, `changed_fields` contains all snapshot fields.
+Subsequent versions list only the fields whose normalized values differ.
 
 ---
 
