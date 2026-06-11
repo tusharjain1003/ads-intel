@@ -59,9 +59,14 @@ matched.
 SHA-256 over a canonical JSON document of **stable fields only**:
 
 ```
-ad_text, advertiser_name, landing_url, landing_domain, regions,
-platforms, spend_range, impressions_range, creative_urls_normalized
+ad_text, landing_url, advertiser_name, advertiser_verified,
+regions, platforms, spend_range, impressions_range,
+creative_urls_normalized
 ```
+
+`landing_domain` is not included in the snapshot hash — it is derived from
+`landing_url` and stored separately in the `ads` table for performant querying
+and detection lookup.
 
 `raw_payload_json` is **excluded** because source APIs often embed volatile
 timestamps, request IDs, or caching metadata that would cause false-positive

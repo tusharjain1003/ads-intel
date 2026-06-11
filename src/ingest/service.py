@@ -14,7 +14,7 @@ from src.ingest.dedup import (
     fallback_dedup_key,
 )
 from src.ingest.normalizer import normalize_ad
-from src.models import Ad, AdVersion, Brand, IngestionRun
+from src.models import Ad, AdSource, AdVersion, Brand, IngestionRun
 
 logger = logging.getLogger(__name__)
 
@@ -186,10 +186,11 @@ def _run_single_source(
     run: IngestionRun,
     source_platform: str,
     search_terms: List[str],
-) -> Dict[str, int]:
+) -> Dict[str, Any]:
     """Execute the fetch–normalise–upsert pipeline for one source.
 
-    Returns a dict of counters for this source alone.
+    Returns a dict with keys ``counters`` (per-action counts) and ``errors``
+    (up to 5 sample per-record failure strings).
     """
     counters: Dict[str, int] = {
         "ads_seen": 0,
@@ -198,6 +199,7 @@ def _run_single_source(
         "ads_unchanged": 0,
         "ads_failed": 0,
     }
+    errors: List[str] = []
 
     adapter = get_adapter(source_platform)
     try:
@@ -223,8 +225,10 @@ def _run_single_source(
             ad_id = raw_ad.get("id") or raw_ad.get("ad_id") or raw_ad.get("adId") or "<unknown>"
             logger.warning("Failed to process %s ad %s: %s", source_platform, ad_id, exc)
             counters["ads_failed"] += 1
+            if len(errors) < 5:
+                errors.append(f"{source_platform}/{ad_id}: {exc}")
 
-    return counters
+    return {"counters": counters, "errors": errors}
 
 
 # ── Public API ─────────────────────────────────────────────────────────────
@@ -272,16 +276,20 @@ def run_ingestion(source: Optional[str] = None) -> Dict[str, Any]:
             "ads_unchanged": 0,
             "ads_failed": 0,
         }
-        errors: List[str] = []
+        per_record_errors: List[str] = []
+        adapter_errors: List[str] = []
+        successful_sources: List[str] = []
 
         for sp in sources:
             try:
-                counters = _run_single_source(db, run, sp, search_terms)
+                result = _run_single_source(db, run, sp, search_terms)
                 for key in totals:
-                    totals[key] += counters[key]
+                    totals[key] += result["counters"][key]
+                per_record_errors.extend(result["errors"])
+                successful_sources.append(sp)
             except Exception as exc:
                 logger.error("Source %s failed entirely: %s", sp, exc)
-                errors.append(f"{sp}: {exc}")
+                adapter_errors.append(f"{sp}: {exc}")
 
         run.ads_seen = totals["ads_seen"]
         run.ads_new = totals["ads_new"]
@@ -295,9 +303,28 @@ def run_ingestion(source: Optional[str] = None) -> Dict[str, Any]:
         detection_count = run_brand_impersonation_detection(db, run.id)
 
         run.completed_at = datetime.utcnow()
-        run.status = "SUCCESS" if not errors else "FAILED"
-        if errors:
-            run.error_message = "; ".join(errors)
+
+        # Determine status
+        if adapter_errors and len(adapter_errors) == len(sources):
+            run.status = "FAILED"
+        elif adapter_errors or totals["ads_failed"] > 0:
+            run.status = "PARTIAL_SUCCESS"
+        else:
+            run.status = "SUCCESS"
+
+        # Build concise error message
+        msg_parts: List[str] = []
+        if adapter_errors:
+            msg_parts.append("Adapter failures: " + "; ".join(adapter_errors))
+        if per_record_errors:
+            msg_parts.append("Per-record failures: " + "; ".join(per_record_errors[:5]))
+        run.error_message = "; ".join(msg_parts) if msg_parts else None
+
+        # Update source freshness for sources that completed without fatal error
+        for sp in successful_sources:
+            db.query(AdSource).filter(
+                AdSource.platform_name == sp,
+            ).update({"last_successful_run_at": datetime.utcnow()})
 
         db.commit()
         logger.info(

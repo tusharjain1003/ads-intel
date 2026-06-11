@@ -62,7 +62,7 @@ class IngestionRun(Base):
     source_platform = Column(String(20), nullable=False)
     started_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     completed_at = Column(DateTime, nullable=True)
-    status = Column(String(20), nullable=False, default="RUNNING")  # RUNNING | SUCCESS | FAILED
+    status = Column(String(20), nullable=False, default="RUNNING")  # RUNNING | SUCCESS | FAILED | PARTIAL_SUCCESS
     ads_seen = Column(Integer, default=0, nullable=False)
     ads_new = Column(Integer, default=0, nullable=False)
     ads_updated = Column(Integer, default=0, nullable=False)

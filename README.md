@@ -62,6 +62,14 @@ as fixtures evolve, but the response includes `ads_seen`, `ads_new`,
 `ads_updated`, `ads_unchanged`, `ads_failed`, and `detections_triggered` for
 verification.
 
+## Regular updates
+
+Periodic ingestion is implemented via APScheduler and **disabled by default**
+for demo reliability.  To enable scheduled updates, set
+`INGESTION_INTERVAL_MINUTES` to a positive value in `.env`; the scheduler will
+run ingestion for all configured sources at that interval.  Manual
+`POST /ingest/run` remains available.
+
 ## Important endpoints
 
 | Method | Path | Description |
@@ -95,10 +103,13 @@ regions, and spend ranges — enough for meaningful impersonation analysis.
   relational and need ACID upserts, foreign keys, and version history, while
   JSONB still gives flexibility for source-specific payloads, targeting fields,
   signals, and reasons.
-- **Dedup strategy** — Primary dedup uses `source_platform + source_ad_id`.
-  For sources without stable IDs, the MVP falls back to
-  `source_platform + landing_domain + advertiser_name + ad_text`, with an index
-  on the first three fields and `ad_text` used as the final exact-match filter.
+- **Dedup strategy** — Primary dedup uses `source_platform + source_ad_id`
+  (DB-enforced via unique constraint).  For sources without stable IDs, the MVP
+  falls back to `source_platform + landing_domain + advertiser_name + ad_text`
+  in application logic, with an index on the first three fields and `ad_text`
+  used as the final exact-match filter.  In production, I would persist a
+  `fallback_dedup_hash` and add a partial unique index for `source_ad_id IS
+  NULL` to make no-ID dedup concurrency-safe across parallel workers.
 - **No cross-platform clustering** — Dedup runs within a source only.
   The same campaign on Meta and TikTok produces two separate ad records.
 - **No enrichment** — WHOIS, VirusTotal, domain-age lookups are not
