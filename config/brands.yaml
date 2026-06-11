@@ -1,0 +1,46 @@
+brands:
+  - name: "HDFC Bank"
+    aliases:
+      - "HDFC"
+      - "HDFC Bank"
+    official_domains:
+      - "hdfcbank.com"
+    approved_advertisers:
+      - "HDFC Bank"
+      - "HDFC Bank Ltd"
+    suspicious_keywords:
+      - "kyc"
+      - "loan"
+      - "urgent"
+      - "verification"
+      - "hiring"
+      - "reward"
+
+  - name: "SBI"
+    aliases:
+      - "SBI"
+      - "State Bank of India"
+    official_domains:
+      - "sbi.co.in"
+      - "onlinesbi.sbi"
+    approved_advertisers:
+      - "State Bank of India"
+    suspicious_keywords:
+      - "kyc"
+      - "account blocked"
+      - "reward"
+      - "loan"
+
+  - name: "Amazon India"
+    aliases:
+      - "Amazon"
+      - "Amazon India"
+    official_domains:
+      - "amazon.in"
+    approved_advertisers:
+      - "Amazon India"
+    suspicious_keywords:
+      - "gift card"
+      - "reward"
+      - "urgent"
+      - "job"
