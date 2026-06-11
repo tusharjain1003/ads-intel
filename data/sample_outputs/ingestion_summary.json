@@ -1,0 +1,14 @@
+{
+  "run_id": "0ea05c55-f2db-4b5a-95b3-34223fbc2ce3",
+  "source": "meta",
+  "status": "SUCCESS",
+  "ads_seen": 5,
+  "ads_new": 5,
+  "ads_updated": 0,
+  "ads_unchanged": 0,
+  "ads_failed": 0,
+  "detections_triggered": 3,
+  "started_at": "2026-06-11T15:50:19.892108",
+  "completed_at": "2026-06-11T15:50:19.921411",
+  "error_message": null
+}

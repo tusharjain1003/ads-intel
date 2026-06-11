@@ -1,0 +1,149 @@
+[
+  {
+    "id": "1e5cb175-1ba2-452a-89c9-4d78101619c9",
+    "ad_id": "53719a96-2e8b-4a0e-93fc-a78ab77cb60d",
+    "brand_name": "Amazon India",
+    "source_platform": "meta",
+    "source_ad_id": "meta_004",
+    "advertiser_name": "Amazon Rewards Hub",
+    "landing_domain": "amazon-rewards-gift.net",
+    "risk_score": 150,
+    "severity": "HIGH",
+    "signals": [
+      {
+        "name": "brand_in_ad_text",
+        "weight": 20,
+        "matched_value": "amazon"
+      },
+      {
+        "name": "unapproved_advertiser",
+        "weight": 25,
+        "matched_value": "Amazon Rewards Hub"
+      },
+      {
+        "name": "unofficial_domain",
+        "weight": 30,
+        "matched_value": "amazon-rewards-gift.net"
+      },
+      {
+        "name": "lookalike_domain",
+        "weight": 35,
+        "matched_value": "amazon-rewards-gift.net"
+      },
+      {
+        "name": "suspicious_keyword",
+        "weight": 10,
+        "matched_value": "gift card"
+      },
+      {
+        "name": "suspicious_keyword",
+        "weight": 10,
+        "matched_value": "reward"
+      },
+      {
+        "name": "advertiser_similar_to_brand",
+        "weight": 20,
+        "matched_value": "Amazon Rewards Hub"
+      }
+    ],
+    "reasons": [
+      "Brand alias 'amazon' found in ad text",
+      "Advertiser 'Amazon Rewards Hub' is not in approved list",
+      "Landing domain 'amazon-rewards-gift.net' is not official",
+      "Landing domain 'amazon-rewards-gift.net' resembles official domain",
+      "Suspicious keyword 'gift card' found in ad text",
+      "Suspicious keyword 'reward' found in ad text",
+      "Advertiser name 'Amazon Rewards Hub' is similar to brand 'Amazon India'"
+    ],
+    "triggered_by_run_id": "0ea05c55-f2db-4b5a-95b3-34223fbc2ce3",
+    "created_at": "2026-06-11T15:50:19.922263"
+  },
+  {
+    "id": "b58cc5d0-4007-40cb-81af-98df51232783",
+    "ad_id": "0134376e-cac6-4336-af0b-f7f76eed40fc",
+    "brand_name": "SBI",
+    "source_platform": "meta",
+    "source_ad_id": "meta_003",
+    "advertiser_name": "SBI Alert Service",
+    "landing_domain": "sbi-accountverify.net",
+    "risk_score": 75,
+    "severity": "HIGH",
+    "signals": [
+      {
+        "name": "brand_in_ad_text",
+        "weight": 20,
+        "matched_value": "sbi"
+      },
+      {
+        "name": "unapproved_advertiser",
+        "weight": 25,
+        "matched_value": "SBI Alert Service"
+      },
+      {
+        "name": "unofficial_domain",
+        "weight": 30,
+        "matched_value": "sbi-accountverify.net"
+      }
+    ],
+    "reasons": [
+      "Brand alias 'sbi' found in ad text",
+      "Advertiser 'SBI Alert Service' is not in approved list",
+      "Landing domain 'sbi-accountverify.net' is not official"
+    ],
+    "triggered_by_run_id": "0ea05c55-f2db-4b5a-95b3-34223fbc2ce3",
+    "created_at": "2026-06-11T15:50:19.922261"
+  },
+  {
+    "id": "2993fb98-34f9-42e4-b828-a24396c75953",
+    "ad_id": "3f120026-5015-42ef-9bb9-46bf4c77caed",
+    "brand_name": "HDFC Bank",
+    "source_platform": "meta",
+    "source_ad_id": "meta_002",
+    "advertiser_name": "KYC Update Centre",
+    "landing_domain": "hdfc-kyc-help.com",
+    "risk_score": 105,
+    "severity": "HIGH",
+    "signals": [
+      {
+        "name": "brand_in_ad_text",
+        "weight": 20,
+        "matched_value": "hdfc"
+      },
+      {
+        "name": "unapproved_advertiser",
+        "weight": 25,
+        "matched_value": "KYC Update Centre"
+      },
+      {
+        "name": "unofficial_domain",
+        "weight": 30,
+        "matched_value": "hdfc-kyc-help.com"
+      },
+      {
+        "name": "suspicious_keyword",
+        "weight": 10,
+        "matched_value": "kyc"
+      },
+      {
+        "name": "suspicious_keyword",
+        "weight": 10,
+        "matched_value": "urgent"
+      },
+      {
+        "name": "suspicious_keyword",
+        "weight": 10,
+        "matched_value": "verification"
+      }
+    ],
+    "reasons": [
+      "Brand alias 'hdfc' found in ad text",
+      "Advertiser 'KYC Update Centre' is not in approved list",
+      "Landing domain 'hdfc-kyc-help.com' is not official",
+      "Suspicious keyword 'kyc' found in ad text",
+      "Suspicious keyword 'urgent' found in ad text",
+      "Suspicious keyword 'verification' found in ad text"
+    ],
+    "triggered_by_run_id": "0ea05c55-f2db-4b5a-95b3-34223fbc2ce3",
+    "created_at": "2026-06-11T15:50:19.922259"
+  }
+]
