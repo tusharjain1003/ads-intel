@@ -1,0 +1,114 @@
+[
+  {
+    "id": "meta_001",
+    "page_name": "HDFC Bank",
+    "page_verified": true,
+    "ad_creative_body": "Open your HDFC Bank savings account online in minutes. Zero balance account available. Apply now!",
+    "ad_snapshot_url": "https://www.facebook.com/ads/library/snapshot/?id=meta_001",
+    "landing_page_url": "https://www.hdfcbank.com/personal/save-online",
+    "ad_delivery_start_time": "2025-11-01T00:00:00Z",
+    "ad_delivery_stop_time": null,
+    "targeted_or_reached_countries": ["IN"],
+    "publisher_platforms": ["facebook", "instagram"],
+    "spend": {"lower_bound": 1000, "upper_bound": 4999},
+    "impressions": {"lower_bound": 10000, "upper_bound": 49999},
+    "creative_media_urls": [
+      "https://cdn.meta.com/hdfc-banner.jpg?expires=1749600000&sig=a1b2c3d4e5f6",
+      "https://cdn.meta.com/hdfc-video.mp4?expires=1749600000&sig=abc123def456"
+    ],
+    "raw_metadata": {
+      "library_source": "meta_ads_library",
+      "ad_type": "image_and_video",
+      "currency": "INR"
+    }
+  },
+  {
+    "id": "meta_002",
+    "page_name": "KYC Update Centre",
+    "page_verified": false,
+    "ad_creative_body": "URGENT: Your HDFC account will be blocked in 24 hours. Complete KYC verification immediately to avoid suspension.",
+    "ad_snapshot_url": "https://www.facebook.com/ads/library/snapshot/?id=meta_002",
+    "landing_page_url": "https://hdfc-kyc-help.com/verify",
+    "ad_delivery_start_time": "2026-01-10T00:00:00Z",
+    "ad_delivery_stop_time": "2026-06-10T00:00:00Z",
+    "targeted_or_reached_countries": ["IN"],
+    "publisher_platforms": ["facebook"],
+    "spend": {"lower_bound": 100, "upper_bound": 500},
+    "impressions": {"lower_bound": 1000, "upper_bound": 9999},
+    "creative_media_urls": [
+      "https://cdn.meta.com/kyc-warning.jpg?expires=1749600000&sig=xyz789abc"
+    ],
+    "raw_metadata": {
+      "library_source": "meta_ads_library",
+      "ad_type": "image",
+      "currency": "INR"
+    }
+  },
+  {
+    "id": "meta_003",
+    "page_name": "SBI Alert Service",
+    "page_verified": false,
+    "ad_creative_body": "Your SBI account has been temporarily blocked due to suspicious activity. Verify now to restore access.",
+    "ad_snapshot_url": "https://www.facebook.com/ads/library/snapshot/?id=meta_003",
+    "landing_page_url": "https://sbi-accountverify.net/secure/login",
+    "ad_delivery_start_time": "2026-02-15T00:00:00Z",
+    "ad_delivery_stop_time": null,
+    "targeted_or_reached_countries": ["IN"],
+    "publisher_platforms": ["facebook", "messenger"],
+    "spend": {"lower_bound": 200, "upper_bound": 800},
+    "impressions": {"lower_bound": 5000, "upper_bound": 14999},
+    "creative_media_urls": [
+      "https://cdn.meta.com/sbi-alert.png?expires=1749600000&sig=def789ghi"
+    ],
+    "raw_metadata": {
+      "library_source": "meta_ads_library",
+      "ad_type": "image",
+      "currency": "INR"
+    }
+  },
+  {
+    "id": "meta_004",
+    "page_name": "Amazon Rewards Hub",
+    "page_verified": false,
+    "ad_creative_body": "Congratulations! You have been selected for Amazon Rewards Program. Claim your free gift card worth Rs.5000 today! Limited time offer.",
+    "ad_snapshot_url": "https://www.facebook.com/ads/library/snapshot/?id=meta_004",
+    "landing_page_url": "https://amazon-rewards-gift.net/claim",
+    "ad_delivery_start_time": "2026-03-01T00:00:00Z",
+    "ad_delivery_stop_time": null,
+    "targeted_or_reached_countries": ["IN"],
+    "publisher_platforms": ["facebook", "instagram", "audience_network"],
+    "spend": {"lower_bound": 300, "upper_bound": 1500},
+    "impressions": {"lower_bound": 8000, "upper_bound": 24999},
+    "creative_media_urls": [
+      "https://cdn.meta.com/amazon-gift.jpg?expires=1749600000&sig=ghi012jkl",
+      "https://cdn.meta.com/amazon-banner.png?expires=1749600000&sig=mno345pqr"
+    ],
+    "raw_metadata": {
+      "library_source": "meta_ads_library",
+      "ad_type": "carousel",
+      "currency": "INR"
+    }
+  },
+  {
+    "id": "meta_006",
+    "page_name": "Amazon India",
+    "page_verified": true,
+    "ad_creative_body": "Shop from crores of products on Amazon India. Great deals and fast delivery across the country.",
+    "ad_snapshot_url": "https://www.facebook.com/ads/library/snapshot/?id=meta_006",
+    "landing_page_url": "https://www.amazon.in/deals",
+    "ad_delivery_start_time": "2026-01-20T00:00:00Z",
+    "ad_delivery_stop_time": null,
+    "targeted_or_reached_countries": ["IN"],
+    "publisher_platforms": ["facebook", "instagram"],
+    "spend": {"lower_bound": 500, "upper_bound": 2000},
+    "impressions": {"lower_bound": 5000, "upper_bound": 19999},
+    "creative_media_urls": [
+      "https://cdn.meta.com/amazon-deals.jpg?expires=1749600000&sig=stu678vwx"
+    ],
+    "raw_metadata": {
+      "library_source": "meta_ads_library",
+      "ad_type": "image",
+      "currency": "INR"
+    }
+  }
+]

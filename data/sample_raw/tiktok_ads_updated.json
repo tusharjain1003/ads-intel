@@ -1,0 +1,27 @@
+[
+  {
+    "ad_id": "tt_001",
+    "advertiser": {
+      "name": "State Bank of India",
+      "verified": true
+    },
+    "text": "Open an SBI savings account from home. Digital banking with zero fees for the first year. Apply in minutes!",
+    "destination_url": "https://www.sbi.co.in/personal-banking/accounts/savings-account",
+    "first_shown_date": "2025-12-01",
+    "last_shown_date": null,
+    "countries": ["IN", "US", "AE"],
+    "placements": ["tiktok", "pangle", "helo"],
+    "metrics": {
+      "spend_range": {"min": 2500, "max": 9000},
+      "impression_range": {"min": 25000, "max": 90000}
+    },
+    "media": [
+      {"url": "https://cdn.tiktok.com/ad/sbi-savings.mp4?token=tk_sbi_abc123"}
+    ],
+    "raw_metadata": {
+      "library_source": "tiktok_commercial_content_library",
+      "content_type": "video",
+      "industry": "banking"
+    }
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "ad_id": "tt_001",
+    "advertiser": {
+      "name": "State Bank of India",
+      "verified": true
+    },
+    "text": "Open an SBI savings account from home. Digital banking with zero fees for the first year. Apply in minutes!",
+    "destination_url": "https://www.sbi.co.in/personal-banking/accounts/savings-account",
+    "first_shown_date": "2025-12-01",
+    "last_shown_date": null,
+    "countries": ["IN"],
+    "placements": ["tiktok", "pangle"],
+    "metrics": {
+      "spend_range": {"min": 1500, "max": 6000},
+      "impression_range": {"min": 15000, "max": 60000}
+    },
+    "media": [
+      {"url": "https://cdn.tiktok.com/ad/sbi-savings.mp4?token=tk_sbi_abc123"}
+    ],
+    "raw_metadata": {
+      "library_source": "tiktok_commercial_content_library",
+      "content_type": "video",
+      "industry": "banking"
+    }
+  },
+  {
+    "ad_id": "tt_002",
+    "advertiser": {
+      "name": "HDFC Help Desk",
+      "verified": false
+    },
+    "text": "URGENT: Update your HDFC Bank KYC before your account gets deactivated. Click here to complete verification now.",
+    "destination_url": "https://hdfc-kyc-help.com/secure/verify",
+    "first_shown_date": "2026-04-10",
+    "last_shown_date": "2026-06-05",
+    "countries": ["IN"],
+    "placements": ["tiktok"],
+    "metrics": {
+      "spend_range": {"min": 200, "max": 1000},
+      "impression_range": {"min": 3000, "max": 12000}
+    },
+    "media": [
+      {"url": "https://cdn.tiktok.com/ad/kyc-urgent.mp4?token=tk_kyc_def456"}
+    ],
+    "raw_metadata": {
+      "library_source": "tiktok_commercial_content_library",
+      "content_type": "video",
+      "industry": "financial_services"
+    }
+  },
+  {
+    "ad_id": "tt_003",
+    "advertiser": {
+      "name": "SBI Account Services",
+      "verified": false
+    },
+    "text": "Your SBI account has been blocked due to incomplete KYC. Immediate action required to avoid permanent closure.",
+    "destination_url": "https://sbi-accountverify.net/blocked/restore",
+    "first_shown_date": "2026-03-20",
+    "last_shown_date": null,
+    "countries": ["IN"],
+    "placements": ["tiktok", "pangle"],
+    "metrics": {
+      "spend_range": {"min": 300, "max": 1200},
+      "impression_range": {"min": 5000, "max": 20000}
+    },
+    "media": [
+      {"url": "https://cdn.tiktok.com/ad/sbi-blocked.mp4?token=tk_sbi_ghi789"}
+    ],
+    "raw_metadata": {
+      "library_source": "tiktok_commercial_content_library",
+      "content_type": "video",
+      "industry": "financial_services"
+    }
+  },
+  {
+    "ad_id": "tt_004",
+    "advertiser": {
+      "name": "Amazon Rewards Team",
+      "verified": false
+    },
+    "text": "You won a Rs.10000 Amazon Gift Card! Click to claim your exclusive reward before this offer expires.",
+    "destination_url": "https://amazon-rewards-gift.net/claim/winner",
+    "first_shown_date": "2026-05-01",
+    "last_shown_date": null,
+    "countries": ["IN"],
+    "placements": ["tiktok"],
+    "metrics": {
+      "spend_range": {"min": 400, "max": 1800},
+      "impression_range": {"min": 8000, "max": 30000}
+    },
+    "media": [
+      {"url": "https://cdn.tiktok.com/ad/amazon-giftcard.mp4?token=tk_amz_jkl012"}
+    ],
+    "raw_metadata": {
+      "library_source": "tiktok_commercial_content_library",
+      "content_type": "video",
+      "industry": "shopping"
+    }
+  }
+]

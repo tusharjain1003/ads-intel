@@ -1,0 +1,25 @@
+[
+  {
+    "adId": "ms_001",
+    "advertiserName": "Amazon India",
+    "isAdvertiserVerified": true,
+    "adTitle": "Shop Smart on Amazon India",
+    "adDescription": "Discover millions of products at great prices. Free delivery on your first order. Shop now!",
+    "destinationUrl": "https://www.amazon.in/smart-deals",
+    "markets": ["IN"],
+    "adFormats": ["search", "shopping"],
+    "dateRange": {"start": "2026-02-01", "end": null},
+    "estimatedSpend": {"min": 5000, "max": 15000},
+    "estimatedImpressions": {"min": 50000, "max": 150000},
+    "assetUrls": [
+      "https://img.microsoft.com/ad/amazon-smart.jpg?sig=amz_ms_001_a",
+      "https://img.microsoft.com/ad/amazon-banner.png?sig=amz_ms_001_b",
+      "https://img.microsoft.com/ad/amazon-new-banner.jpg?sig=amz_ms_001_c"
+    ],
+    "rawMetadata": {
+      "library_source": "microsoft_ad_library",
+      "campaign_type": "brand",
+      "currency": "INR"
+    }
+  }
+]

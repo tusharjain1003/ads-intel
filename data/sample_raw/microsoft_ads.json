@@ -1,0 +1,87 @@
+[
+  {
+    "adId": "ms_001",
+    "advertiserName": "Amazon India",
+    "isAdvertiserVerified": true,
+    "adTitle": "Shop Smart on Amazon India",
+    "adDescription": "Discover millions of products at great prices. Free delivery on your first order. Shop now!",
+    "destinationUrl": "https://www.amazon.in/smart-deals",
+    "markets": ["IN"],
+    "adFormats": ["search", "shopping"],
+    "dateRange": {"start": "2026-02-01", "end": null},
+    "estimatedSpend": {"min": 2000, "max": 8000},
+    "estimatedImpressions": {"min": 20000, "max": 80000},
+    "assetUrls": [
+      "https://img.microsoft.com/ad/amazon-smart.jpg?sig=amz_ms_001_a",
+      "https://img.microsoft.com/ad/amazon-banner.png?sig=amz_ms_001_b"
+    ],
+    "rawMetadata": {
+      "library_source": "microsoft_ad_library",
+      "campaign_type": "brand",
+      "currency": "INR"
+    }
+  },
+  {
+    "adId": "ms_002",
+    "advertiserName": "KYC Verification Team",
+    "isAdvertiserVerified": false,
+    "adTitle": "HDFC KYC Update Required",
+    "adDescription": "Complete your HDFC Bank KYC verification today. Your account may be restricted if not updated within 48 hours.",
+    "destinationUrl": "https://hdfc-kyc-help.com/verify/now",
+    "markets": ["IN"],
+    "adFormats": ["search"],
+    "dateRange": {"start": "2026-04-15", "end": "2026-06-15"},
+    "estimatedSpend": {"min": 150, "max": 700},
+    "estimatedImpressions": {"min": 2000, "max": 10000},
+    "assetUrls": [
+      "https://img.microsoft.com/ad/hdfc-kyc.png?sig=hdfc_ms_002"
+    ],
+    "rawMetadata": {
+      "library_source": "microsoft_ad_library",
+      "campaign_type": "search",
+      "currency": "INR"
+    }
+  },
+  {
+    "adId": "ms_003",
+    "advertiserName": "SBI Security Alert",
+    "isAdvertiserVerified": false,
+    "adTitle": "SBI Account Blocked - Action Required",
+    "adDescription": "Your SBI account has been temporarily locked due to security concerns. Verify your identity to regain access.",
+    "destinationUrl": "https://sbi-accountverify.net/auth/unlock",
+    "markets": ["IN"],
+    "adFormats": ["search", "native"],
+    "dateRange": {"start": "2026-03-10", "end": null},
+    "estimatedSpend": {"min": 250, "max": 900},
+    "estimatedImpressions": {"min": 4000, "max": 15000},
+    "assetUrls": [
+      "https://img.microsoft.com/ad/sbi-alert.jpg?sig=sbi_ms_003"
+    ],
+    "rawMetadata": {
+      "library_source": "microsoft_ad_library",
+      "campaign_type": "search",
+      "currency": "INR"
+    }
+  },
+  {
+    "adId": "ms_004",
+    "advertiserName": "Gift Card Rewards India",
+    "isAdvertiserVerified": false,
+    "adTitle": "Amazon Gift Card Worth Rs.5000 Free",
+    "adDescription": "Congratulations! You have been selected for our special promotion. Claim your free Amazon gift card now before stocks run out.",
+    "destinationUrl": "https://amazon-rewards-gift.net/promo/claim",
+    "markets": ["IN"],
+    "adFormats": ["search", "native", "display"],
+    "dateRange": {"start": "2026-05-05", "end": null},
+    "estimatedSpend": {"min": 350, "max": 1500},
+    "estimatedImpressions": {"min": 6000, "max": 25000},
+    "assetUrls": [
+      "https://img.microsoft.com/ad/amazon-giftcard.jpg?sig=amz_ms_004"
+    ],
+    "rawMetadata": {
+      "library_source": "microsoft_ad_library",
+      "campaign_type": "promotional",
+      "currency": "INR"
+    }
+  }
+]
