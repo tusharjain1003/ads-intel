@@ -56,6 +56,12 @@ curl -s "http://localhost:8000/detections" | python3 -m json.tool
 Expected: 5 Meta ads ingested → 3 impersonation detections (HDFC KYC scam
 105 HIGH, SBI account-blocked 75 HIGH, Amazon gift-card scam 150 HIGH).
 
+Running all sources by omitting the `source` parameter ingests the
+fixture-backed Meta, TikTok, and Microsoft datasets.  Exact counts may differ
+as fixtures evolve, but the response includes `ads_seen`, `ads_new`,
+`ads_updated`, `ads_unchanged`, `ads_failed`, and `detections_triggered` for
+verification.
+
 ## Important endpoints
 
 | Method | Path | Description |

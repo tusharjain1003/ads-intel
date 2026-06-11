@@ -48,6 +48,12 @@ Joins to `ad_versions` (1:N) and `detections` (1:N).
 primary dedup key.  A content-based fallback (`landing_domain + advertiser_name
 + ad_text` hash) is used when `source_ad_id` is NULL.
 
+A composite index `ix_ads_fallback_dedup` on
+`(source_platform, landing_domain, advertiser_name)` accelerates the fallback
+lookup.  `ad_text` is excluded from the index (it is a large `TEXT` column)
+and remains a final exact-match filter applied after the indexed columns are
+matched.
+
 ### `snapshot_hash`
 
 SHA-256 over a canonical JSON document of **stable fields only**:

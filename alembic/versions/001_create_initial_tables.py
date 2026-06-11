@@ -84,6 +84,7 @@ def upgrade() -> None:
         sa.Column("updated_at", sa.DateTime(), server_default=sa.text("now()"), nullable=False),
     )
     op.create_unique_constraint("uq_ads_source", "ads", ["source_platform", "source_ad_id"])
+    op.create_index("ix_ads_fallback_dedup", "ads", ["source_platform", "landing_domain", "advertiser_name"])
 
     op.create_table(
         "ad_versions",

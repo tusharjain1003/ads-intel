@@ -1,7 +1,7 @@
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from src.db import get_db
 from src.ingest.service import run_ingestion
@@ -46,9 +46,9 @@ def _ad_dict(ad: Ad) -> dict:
     }
 
 
-def _detection_dict(detection: Detection, db: Session) -> dict:
-    ad = db.query(Ad).filter(Ad.id == detection.ad_id).first()
-    brand = db.query(Brand).filter(Brand.id == detection.brand_id).first()
+def _detection_dict(detection: Detection) -> dict:
+    ad = detection.ad
+    brand = detection.brand
     return {
         "id": str(detection.id),
         "ad_id": str(detection.ad_id),
@@ -173,13 +173,24 @@ def list_brands(db: Session = Depends(get_db)):
 
 @router.get("/detections")
 def list_detections(db: Session = Depends(get_db)):
-    detections = db.query(Detection).order_by(Detection.created_at.desc()).limit(100).all()
-    return [_detection_dict(d, db) for d in detections]
+    detections = (
+        db.query(Detection)
+        .options(joinedload(Detection.ad), joinedload(Detection.brand))
+        .order_by(Detection.created_at.desc())
+        .limit(100)
+        .all()
+    )
+    return [_detection_dict(d) for d in detections]
 
 
 @router.get("/detections/{detection_id}")
 def get_detection(detection_id: UUID, db: Session = Depends(get_db)):
-    detection = db.query(Detection).filter(Detection.id == detection_id).first()
+    detection = (
+        db.query(Detection)
+        .options(joinedload(Detection.ad), joinedload(Detection.brand))
+        .filter(Detection.id == detection_id)
+        .first()
+    )
     if not detection:
         raise HTTPException(status_code=404, detail="Detection not found")
-    return _detection_dict(detection, db)
+    return _detection_dict(detection)

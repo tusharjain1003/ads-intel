@@ -21,6 +21,14 @@ Fixtures let me build and test the full pipeline without credentials, and the
 adapter interface is identical in both modes — switching to live requires only
 implementing the API call.
 
+I chose **Postgres over SQLite or MongoDB** because the core entities (ads,
+brands, ingestion runs, detections) are relational and need ACID-compliant
+upserts with referential integrity and versioning.  JSONB columns on the same
+Postgres tables still allow flexible source payloads, targeting regions,
+detection signals, and reasons to be stored without a rigid schema — the best
+of both worlds for an ingestion pipeline where raw payload shapes vary per
+source.
+
 ---
 
 ## 2. Prompt sequence
@@ -40,6 +48,13 @@ The major steps I asked the agent to execute, in order:
 11. **Scheduler** — APScheduler integration (disabled by default)
 12. **Sample outputs** — script to generate reviewer-friendly JSON artifacts
 13. **Documentation** — README, schema, source analysis, detection logic, architecture
+
+On the first pass, the agent correctly scaffolded the Docker Compose setup,
+FastAPI app factory, SQLAlchemy engine/session, and the Pydantic-settings
+config without needing structural corrections.  The adapter interface,
+normalizer, and scheduler also came out close to the final version —
+most corrections were in edge-case handling (idempotency, URL normalization,
+false-positive guardrails) rather than fundamental architecture.
 
 ---
 
