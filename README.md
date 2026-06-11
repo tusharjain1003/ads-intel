@@ -91,6 +91,14 @@ regions, and spend ranges — enough for meaningful impersonation analysis.
   verification and app review; fixtures let you evaluate the full pipeline
   without credentials.  Set `USE_FIXTURES=false` and provide API keys for
   live mode (currently raises `NotImplementedError`).
+- **Storage choice** — Postgres was chosen because the core entities are
+  relational and need ACID upserts, foreign keys, and version history, while
+  JSONB still gives flexibility for source-specific payloads, targeting fields,
+  signals, and reasons.
+- **Dedup strategy** — Primary dedup uses `source_platform + source_ad_id`.
+  For sources without stable IDs, the MVP falls back to
+  `source_platform + landing_domain + advertiser_name + ad_text`, with an index
+  on the first three fields and `ad_text` used as the final exact-match filter.
 - **No cross-platform clustering** — Dedup runs within a source only.
   The same campaign on Meta and TikTok produces two separate ad records.
 - **No enrichment** — WHOIS, VirusTotal, domain-age lookups are not
